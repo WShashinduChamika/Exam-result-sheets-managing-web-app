@@ -11,6 +11,7 @@ import { clickAddResult, clickApprovalRequestResults, clickApprovalRequestView, 
 import { dptClickAllResult, dptClickApprovedResultView, dptClickHistory, dptClickViewResult } from '../store/reducers/DptSecretaryNavigationSlice';
 import { hodClickAllResult, hodClickApprovedResultView, hodClickHistory, hodClickViewResult } from '../store/reducers/HODNavigationSlice';
 import { deanClickAllReultSheets, deanClickApprovedCollection, deanClickApprovedCollectionView, deanClickApprovedResultSheetsCollectionView, deanClickApprovedResultView, deanClickCollection, deanClickCollectionView, deanClickHistory, deanClickResultSheetsCollectionView, deanClickViewResult } from '../store/reducers/DeanNavigationSlice';
+import { examDepartmentClickApprovedCollection, examDepartmentClickApprovedCollectionView, examDepartmentClickApprovedResultSheetsCollectionView, examDepartmentClickCollection, examDepartmentClickCollectionView, examDepartmentClickResultSheetsCollectionView } from '../store/reducers/ExamDptNavigationSlice';
 
 function SideNavBar({ userType }) {
 
@@ -76,6 +77,18 @@ function SideNavBar({ userType }) {
 
     ]
 
+    const examDepartmentNavLinks = [
+        {
+            name: 'Collection',
+            icon: <PiSquaresFourBold size={20} color='white' />
+        },
+        {
+            name: 'Collection History',
+            icon: <FaHourglassEnd size={20} color='white' />
+        }
+    ]
+
+
     const [sideNavLinks, setSideNavLinks] = useState([])
     const [activeLink, setActiveLink] = useState('')
 
@@ -92,6 +105,9 @@ function SideNavBar({ userType }) {
         } else if (userType === 'dean') {
             setSideNavLinks(deanNavLinks)
             setActiveLink('All Result Sheets')
+        }else if(userType === 'examDpt'){
+            setSideNavLinks(examDepartmentNavLinks)
+            setActiveLink('Collection')
         }
     }
 
@@ -308,6 +324,37 @@ function SideNavBar({ userType }) {
             }
         }
 
+        if(userType === 'examDpt'){
+            if(name === 'Collection'){
+                if(!examDptNavigation.isClickedCollection){
+                    dispatch(examDepartmentClickCollection(true))
+                }
+                if(examDptNavigation.isClickedCollectionView){
+                    dispatch(examDepartmentClickCollectionView(false))
+                }
+                if(examDptNavigation.isClickedResultSheetsCollectionView){
+                    dispatch(examDepartmentClickResultSheetsCollectionView(false))
+                }
+                if(examDptNavigation.isClickedApprovedCollection){
+                    dispatch(examDepartmentClickApprovedCollection(false))
+                }
+            }
+            if(name === 'Collection History'){
+                if(!examDptNavigation.isClickedApprovedCollection){
+                    dispatch(examDepartmentClickApprovedCollection(true))
+                }
+                if(examDptNavigation.isClickedApprovedCollectionView){
+                    dispatch(examDepartmentClickApprovedCollectionView(false))
+                }
+                if(examDptNavigation.isClickedApprovedResultSheetsCollectionView){
+                    dispatch(examDepartmentClickApprovedResultSheetsCollectionView(false))
+                }
+                if(examDptNavigation.isClickedCollection){
+                    dispatch(examDepartmentClickCollection(false))
+                }
+            }
+        }
+
     }
 
 
@@ -316,6 +363,7 @@ function SideNavBar({ userType }) {
     const dptSecretaryNavigation = useSelector((store) => store.dptSecretaryNavigationSlice)
     const hodNavigation = useSelector((store) => store.hodNavigationSlice)
     const deanNavigation = useSelector((store) => store.deanNavigationSlice)
+    const examDptNavigation = useSelector((store) => store.examDptNavigationSlice)
 
     const dispatch = useDispatch()
 

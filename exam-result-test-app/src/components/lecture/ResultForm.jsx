@@ -60,7 +60,7 @@ function ResultForm() {
                     </div>
                 </div>
                 <div className='w-full mt-2'>
-                   <ResultTable students={students} setStudents={setStudents}/>
+                   <ResultTable students={students} setStudents={setStudents} user='lecture'/>
                 </div>
                 <div className='w-full mt-5 mr-16 flex justify-end'>
                     <button className='py-2 px-10 bg-secondary text-white border-btn-border text-[16px] border-[1px]'>Send</button>

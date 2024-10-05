@@ -13,9 +13,9 @@ function ResultTable(props) {
     }
 
     return (
-        <div className={`${props.user !== 'hod' && props.user !== 'dean' ? "ml-0" : "ml-48"}`}>
+        <div className={`${props.user === 'lecture' || props.user === 'dptSecretary' ? "ml-0" : "ml-48"}`}>
             <div className='flex flex-col items-center'>
-                <div className={`mt-3 ${props.user !== 'hod' && props.user !== 'dean' ? "w-11/12" : "w-10/12"}`}>
+                <div className={`mt-3 ${props.user === 'lecture' || props.user === 'dptSecretary' ? "w-11/12" : "w-10/12"}`}>
                     <div className='grid grid-cols-8 gap-[1px]'>
                         {/* {
                             props.user !== 'hod' && props.user !== 'dean'?
@@ -35,13 +35,13 @@ function ResultTable(props) {
                             <h3 className='text-lg text-white'>Result</h3>
                         </div>
                         {
-                            props.user !== 'hod' && props.user !== 'dean' ?
+                            props.user === 'lecture' || props.user === 'dptSecretary' ?
                                 <div className='col-span-1 flex items-center justify-center bg-primary'></div>
                                 : <></>
                         }
                     </div>
                 </div>
-                <div className={`${props.user !== 'hod' && props.user !== 'dean' ? "w-11/12" : "w-10/12"} max-h-72 overflow-y-scroll scrollbar-hide`}>
+                <div className={`${props.user === 'lecture' || props.user === 'dptSecretary' ? "w-11/12" : "w-10/12"} max-h-72 overflow-y-scroll scrollbar-hide`}>
                     {students.map((student, index) => (
                         <div key={index} className='w-full mb-1'>
                             <div className='grid grid-cols-8 gap-[1px]'>
@@ -72,7 +72,7 @@ function ResultTable(props) {
                                     ></input>
                                 </div>
                                 {
-                                    props.user !== 'hod' && props.user !== 'dean' ?
+                                    props.user === 'lecture' || props.user === 'dptSecretary' ?
                                         props.user === 'dptSecretary' ?
                                             <div className='p-3 col-span-1 flex items-center justify-center gap-1 bg-table-bg'>
                                                 {

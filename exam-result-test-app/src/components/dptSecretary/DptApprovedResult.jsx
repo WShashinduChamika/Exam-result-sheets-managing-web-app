@@ -47,7 +47,7 @@ function DptApprovedResult() {
                     </div>
                 </div>
                 <div className='mt-5 w-full'>
-                    <ResultTable students={students} setStudents={setStudents} user='dean' />
+                    <ResultTable students={students} setStudents={setStudents} user='hod' />
                 </div>
             </div>
         </div>

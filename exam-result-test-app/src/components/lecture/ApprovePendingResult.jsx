@@ -74,7 +74,7 @@ function ApprovePendingResult() {
                     </div>
                 </div>
                 <div className='mt-2'>
-                   <ResultTable students={students} setStudents={setStudents} />
+                   <ResultTable students={students} setStudents={setStudents} user="lecture"/>
                 </div>
                 <div className='mt-4 mr-10 flex gap-3 justify-end'>
                     <button className='mt-3 py-2 px-10 bg-transperant text-black border-btn-border text-[16px] border-[1px]'>Update</button>
