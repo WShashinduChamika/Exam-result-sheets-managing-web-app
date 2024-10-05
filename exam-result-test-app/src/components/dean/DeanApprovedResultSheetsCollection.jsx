@@ -2,19 +2,14 @@ import React, { useState } from 'react'
 import ResultSheetsCollection from '../ResultSheetsCollection'
 import { IoChevronBack } from "react-icons/io5";
 import { useDispatch } from 'react-redux';
-import { deanClickCollectionView } from '../../store/reducers/DeanNavigationSlice';
+import { deanClickApprovedCollectionView} from '../../store/reducers/DeanNavigationSlice';
 
-function DeanResultSheetsCollection() {
-
+function DeanApprovedResultSheetsCollection() {
     const sheets = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
     const [faculty, setFaculty] = useState('Faculty of Computing')
     const [department, setDepartment] = useState('Computing and Information Systems')
     const [batch, setBatch] = useState('First Year')
     const [semester, setSemester] = useState('Semester 1')
-
-    const handleApproveCollection = () => {
-        console.log('Approve Collection')
-    }
 
     const [students, setStudents] = useState([
         {
@@ -54,7 +49,7 @@ function DeanResultSheetsCollection() {
     const dispatch = useDispatch()
 
     const handleBack = () => {
-        dispatch(deanClickCollectionView(false))
+        dispatch(deanClickApprovedCollectionView(false))
     }
 
     return (
@@ -66,7 +61,7 @@ function DeanResultSheetsCollection() {
                        size={20} 
                        className='cursor-pointer' 
                     />
-                    <h3 className='text-xl text-primary-txt'>Collection</h3>
+                    <h3 className='text-xl text-primary-txt'>Collection History</h3>
                 </div>
                 <div className='mt-2 py-2 px-5 w-11/12 flex flex-col items-start gap-0 bg-tertiary-bg'>
                     <p>University : Sabaragamuwa University of Sri Lanka</p>
@@ -76,17 +71,9 @@ function DeanResultSheetsCollection() {
                     <p>Semester: {semester}</p>
                 </div>
                 <ResultSheetsCollection userType="dean" resultSheets={sheets} />
-                <div className='w-11/12 flex justify-end'>
-                    <button 
-                       onClick={handleApproveCollection}
-                       className='mt-0 py-2 px-10 bg-secondary text-white border-btn-border text-[16px] border-[1px]'
-                    >
-                        Approve
-                    </button>
-                </div>
             </div>
         </div>
     )
 }
 
-export default DeanResultSheetsCollection
+export default DeanApprovedResultSheetsCollection

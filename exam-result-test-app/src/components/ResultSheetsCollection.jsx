@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { deanClickCollectionView, deanClickResultSheetsCollectionView } from '../store/reducers/DeanNavigationSlice'
+import { deanClickApprovedCollectionView, deanClickApprovedResultSheetsCollectionView, deanClickCollectionView, deanClickResultSheetsCollectionView } from '../store/reducers/DeanNavigationSlice'
 
 function ResultSheetsCollection({userType,resultSheets}) {
     const [resultSheetList, setResulSheeetList] = useState(resultSheets)
@@ -17,6 +17,9 @@ function ResultSheetsCollection({userType,resultSheets}) {
             }
             if(!deanNavigation.isClickedResultSheetsCollectionView){
                 dispatch(deanClickResultSheetsCollectionView(true))
+            }
+            if(!deanNavigation. isClickedApprovedResultSheetsCollectionView){
+                dispatch(deanClickApprovedResultSheetsCollectionView(true))
             }
         }
     }
@@ -36,7 +39,7 @@ function ResultSheetsCollection({userType,resultSheets}) {
                     </div>
                 </div>
             </div>
-            <div className='mb-10 max-h-60 overflow-y-auto scrollbar-hide'>
+            <div className='mb-10 max-h-48 overflow-y-auto scrollbar-hide'>
                 {resultSheetList.map((sheet, index) => (
                     <div key={index} className='py-2 w-full grid grid-cols-12 gap-1 gradient-border-bottom border-b-[1px]'>
                        

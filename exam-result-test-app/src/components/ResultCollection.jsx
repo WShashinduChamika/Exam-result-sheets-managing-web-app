@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { deanClickCollectionView, deanClickViewResult } from '../store/reducers/DeanNavigationSlice'
+import { deanClickApprovedCollectionView, deanClickCollectionView, deanClickViewResult } from '../store/reducers/DeanNavigationSlice'
 
 function ResultCollection({userType, resultSheets}) {
     const [resultSheetList, setResulSheeetList] = useState(resultSheets)
@@ -17,6 +17,9 @@ function ResultCollection({userType, resultSheets}) {
             }
             if(!deanNavigation.isClickedCollectionView){
                 dispatch(deanClickCollectionView(true))
+            }
+            if(!deanNavigation.isClickedApprovedCollectionView){
+                dispatch(deanClickApprovedCollectionView(true))
             }
         }
     }

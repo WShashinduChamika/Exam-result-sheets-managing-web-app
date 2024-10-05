@@ -5,11 +5,12 @@ import { TbHistory } from "react-icons/tb";
 import { BiSolidLogOut } from "react-icons/bi";
 import { PiSquaresFourBold } from "react-icons/pi";
 import { IoSend } from "react-icons/io5";
+import { FaHourglassEnd } from "react-icons/fa6";
 import { useDispatch, useSelector } from 'react-redux';
 import { clickAddResult, clickApprovalRequestResults, clickApprovalRequestView, clickDetailsProceed, clickedAprovalPendingResults, clickHistory, clickHistoryView, clickViewResult } from '../store/reducers/LectureNavigationSlice';
 import { dptClickAllResult, dptClickApprovedResultView, dptClickHistory, dptClickViewResult } from '../store/reducers/DptSecretaryNavigationSlice';
 import { hodClickAllResult, hodClickApprovedResultView, hodClickHistory, hodClickViewResult } from '../store/reducers/HODNavigationSlice';
-import { deanClickAllReultSheets, deanClickApprovedResultView, deanClickCollection, deanClickCollectionView, deanClickHistory, deanClickResultSheetsCollectionView, deanClickViewResult } from '../store/reducers/DeanNavigationSlice';
+import { deanClickAllReultSheets, deanClickApprovedCollection, deanClickApprovedCollectionView, deanClickApprovedResultSheetsCollectionView, deanClickApprovedResultView, deanClickCollection, deanClickCollectionView, deanClickHistory, deanClickResultSheetsCollectionView, deanClickViewResult } from '../store/reducers/DeanNavigationSlice';
 
 function SideNavBar({ userType }) {
 
@@ -67,6 +68,10 @@ function SideNavBar({ userType }) {
         {
             name: 'Collection',
             icon: <PiSquaresFourBold size={20} color='white' />
+        },
+        {
+            name: 'Collection History',
+            icon: <FaHourglassEnd size={20} color='white' />
         }
 
     ]
@@ -92,7 +97,7 @@ function SideNavBar({ userType }) {
 
     const handleNavLinkClick = (name) => {
         setActiveLink(name)
-        if(userType === 'lecture'){
+        if (userType === 'lecture') {
 
             if (name === 'Add Results') {
                 if (!lectureNavigation.isClickedAddResult) {
@@ -103,7 +108,7 @@ function SideNavBar({ userType }) {
                     dispatch(clickedAprovalPendingResults(false))
                     dispatch(clickViewResult(false))
                 }
-                if(lectureNavigation.isClickedApprovalRequestResults){
+                if (lectureNavigation.isClickedApprovalRequestResults) {
                     dispatch(clickApprovalRequestResults(false))
                     dispatch(clickApprovalRequestView(false))
                 }
@@ -111,7 +116,7 @@ function SideNavBar({ userType }) {
                     dispatch(clickHistory(false))
                     dispatch(clickHistoryView(false))
                 }
-            } 
+            }
             if (name === 'Approve Pending Results') {
                 if (!lectureNavigation.isClickedApprovalPendingResults) {
                     dispatch(clickedAprovalPendingResults(true))
@@ -121,7 +126,7 @@ function SideNavBar({ userType }) {
                     dispatch(clickAddResult(false))
                     dispatch(clickDetailsProceed(false))
                 }
-                if(lectureNavigation.isClickedApprovalRequestResults){
+                if (lectureNavigation.isClickedApprovalRequestResults) {
                     dispatch(clickApprovalRequestResults(false))
                     dispatch(clickApprovalRequestView(false))
                 }
@@ -129,10 +134,10 @@ function SideNavBar({ userType }) {
                     dispatch(clickHistory(false))
                     dispatch(clickHistoryView(false))
                 }
-    
+
             }
-            if(name === 'Approval Request Results'){
-                if(!lectureNavigation.isClickedApprovalRequestResults){
+            if (name === 'Approval Request Results') {
+                if (!lectureNavigation.isClickedApprovalRequestResults) {
                     dispatch(clickApprovalRequestResults(true))
                     dispatch(clickApprovalRequestView(false))
                 }
@@ -149,7 +154,7 @@ function SideNavBar({ userType }) {
                     dispatch(clickHistoryView(false))
                 }
             }
-            if(name==='History'){
+            if (name === 'History') {
                 if (!lectureNavigation.isClickedHistory) {
                     dispatch(clickHistory(true))
                     dispatch(clickHistoryView(false))
@@ -158,7 +163,7 @@ function SideNavBar({ userType }) {
                     dispatch(clickAddResult(false))
                     dispatch(clickDetailsProceed(false))
                 }
-                if(lectureNavigation.isClickedApprovalRequestResults){
+                if (lectureNavigation.isClickedApprovalRequestResults) {
                     dispatch(clickApprovalRequestResults(false))
                     dispatch(clickApprovalRequestView(false))
                 }
@@ -176,13 +181,13 @@ function SideNavBar({ userType }) {
                     dispatch(dptClickAllResult(true))
                     dispatch(dptClickViewResult(false))
                 }
-                if(dptSecretaryNavigation.isClickedHistory){
+                if (dptSecretaryNavigation.isClickedHistory) {
                     dispatch(dptClickHistory(false))
                     dispatch(dptClickApprovedResultView(false))
                 }
             }
-            if(name === 'History'){
-                if(!dptSecretaryNavigation.isClickedHistory){
+            if (name === 'History') {
+                if (!dptSecretaryNavigation.isClickedHistory) {
                     dispatch(dptClickHistory(true))
                     dispatch(dptClickApprovedResultView(false))
                 }
@@ -204,7 +209,7 @@ function SideNavBar({ userType }) {
                     dispatch(hodClickHistory(false))
                     dispatch(hodClickApprovedResultView(false))
                 }
-                
+
             }
 
             if (name === 'History') {
@@ -230,8 +235,11 @@ function SideNavBar({ userType }) {
                 if (deanNavigation.isClickedHistory) {
                     dispatch(deanClickHistory(false))
                 }
-                if (deanNavigation.isClickedCollection){
+                if (deanNavigation.isClickedCollection) {
                     dispatch(deanClickCollection(false))
+                }
+                if(deanNavigation.isClickedApprovedCollection){
+                    dispatch(deanClickApprovedCollection(false))
                 }
             }
 
@@ -239,7 +247,7 @@ function SideNavBar({ userType }) {
                 if (!deanNavLinks.isClikedHistory) {
                     dispatch(deanClickHistory(true))
                 }
-                if(deanNavigation.isClickedApprovedResultView){
+                if (deanNavigation.isClickedApprovedResultView) {
                     dispatch(deanClickApprovedResultView(false))
                 }
                 if (deanNavigation.isClickedAllReultSheets) {
@@ -251,16 +259,19 @@ function SideNavBar({ userType }) {
                 if (deanNavigation.isClickedCollection) {
                     dispatch(deanClickCollection(false))
                 }
+                if(deanNavigation.isClickedApprovedCollection){
+                    dispatch(deanClickApprovedCollection(false))
+                }
             }
 
             if (name === 'Collection') {
                 if (!deanNavigation.isClickedCollection) {
                     dispatch(deanClickCollection(true))
                 }
-                if(deanNavigation.isClickedCollectionView){
+                if (deanNavigation.isClickedCollectionView) {
                     dispatch(deanClickCollectionView(false))
                 }
-                if(deanNavigation.isClickedResultSheetsCollectionView){
+                if (deanNavigation.isClickedResultSheetsCollectionView) {
                     dispatch(deanClickResultSheetsCollectionView(false))
                 }
                 if (deanNavigation.isClickedAllReultSheets) {
@@ -269,6 +280,31 @@ function SideNavBar({ userType }) {
                 if (deanNavigation.isClickedHistory) {
                     dispatch(deanClickHistory(false))
                 }
+                if(deanNavigation.isClickedApprovedCollection){
+                    dispatch(deanClickApprovedCollection(false))
+                }
+            }
+
+            if (name === 'Collection History') {
+                if (!deanNavigation.isClickedApprovedCollection) {
+                    dispatch(deanClickApprovedCollection(true))
+                }
+                if (deanNavigation.isClickedApprovedCollectionView) {
+                     dispatch(deanClickApprovedCollectionView(false))
+                }
+                if (deanNavigation.isClickedApprovedResultSheetsCollectionView) {
+                    dispatch(deanClickApprovedResultSheetsCollectionView(false))
+                }
+                if (deanNavigation.isClickedAllReultSheets) {
+                    dispatch(deanClickAllReultSheets(false))
+                }
+                if (deanNavigation.isClickedHistory) {
+                    dispatch(deanClickHistory(false))
+                }
+                if (deanNavigation.isClickedCollection) {
+                    dispatch(deanClickCollection(false))
+                }
+
             }
         }
 

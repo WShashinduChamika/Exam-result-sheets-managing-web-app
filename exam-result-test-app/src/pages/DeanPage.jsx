@@ -9,6 +9,9 @@ import DeanResultCollection from '../components/dean/DeanResultCollection'
 import DeanResultSheetsCollection from '../components/dean/DeanResultSheetsCollection'
 import DeanResultCollectionResult from '../components/dean/DeanResultCollectionResult'
 import DeanApprovedResult from '../components/dean/DeanApprovedResult'
+import DeanApprovedResultCollection from '../components/dean/DeanApprovedResultCollection'
+import DeanApprovedResultSheetsCollection from '../components/dean/DeanApprovedResultSheetsCollection'
+import DeanApprovedResultCollectionResult from '../components/dean/DeanApprovedResultCollectionResult'
 
 function DeanPage() {
 
@@ -40,6 +43,14 @@ function DeanPage() {
                                     deanNavigation.isClickedResultSheetsCollectionView ?
                                         <DeanResultCollectionResult /> : <DeanResultSheetsCollection />
                                     : <DeanResultCollection />
+                                : <></>
+                        }
+                        {
+                            deanNavigation.isClickedApprovedCollection ?
+                                deanNavigation.isClickedApprovedCollectionView?
+                                    deanNavigation.isClickedApprovedResultSheetsCollectionView ?
+                                        <DeanApprovedResultCollectionResult /> :<DeanApprovedResultSheetsCollection />
+                                        : <DeanApprovedResultCollection />
                                 : <></>
                         }
                     </div>

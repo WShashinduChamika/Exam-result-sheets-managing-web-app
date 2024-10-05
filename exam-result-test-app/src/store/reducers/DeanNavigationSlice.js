@@ -8,6 +8,9 @@ const intialState = {
     isClickedCollection:false,
     isClickedCollectionView:false,
     isClickedResultSheetsCollectionView:false,
+    isClickedApprovedCollection:false,
+    isClickedApprovedCollectionView:false,
+    isClickedApprovedResultSheetsCollectionView:false,
 }
 
 const DeanNavigationSlice = createSlice({
@@ -34,6 +37,15 @@ const DeanNavigationSlice = createSlice({
         },
         deanClickResultSheetsCollectionView:(state,action)=>{
             state.isClickedResultSheetsCollectionView = action.payload
+        },
+        deanClickApprovedCollection:(state,action)=>{
+            state.isClickedApprovedCollection = action.payload
+        },
+        deanClickApprovedCollectionView:(state,action)=>{
+            state.isClickedApprovedCollectionView = action.payload
+        },
+        deanClickApprovedResultSheetsCollectionView:(state,action)=>{
+            state.isClickedApprovedResultSheetsCollectionView = action.payload
         }
     }
 })
@@ -45,7 +57,10 @@ export const {
     deanClickApprovedResultView,
     deanClickCollection,
     deanClickCollectionView,
-    deanClickResultSheetsCollectionView
+    deanClickResultSheetsCollectionView,
+    deanClickApprovedCollection,
+    deanClickApprovedCollectionView,
+    deanClickApprovedResultSheetsCollectionView
 
 } = DeanNavigationSlice.actions
 
