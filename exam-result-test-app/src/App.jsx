@@ -7,6 +7,7 @@ import HODPage from './pages/HODPage'
 import RegisterPage from './pages/RegisterPage'
 import DeanPage from './pages/DeanPage'
 import ExamDepartmentPage from './pages/ExamDepartmentPage'
+import RegistarPage from './pages/RegistarPage'
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path='/hod' element={<HODPage/>} />
           <Route path='/dean' element={<DeanPage/>} />
           <Route path='/examDepartment' element={<ExamDepartmentPage />} />
+          <Route path='/registar' element={<RegistarPage />} />
         </Routes>
       </Router>
     </>

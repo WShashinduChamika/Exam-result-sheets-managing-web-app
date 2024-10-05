@@ -4,6 +4,7 @@ import DptSecretaryNavigationSliceReducer from "./reducers/DptSecretaryNavigatio
 import HODNavigationSliceReducer from "./reducers/HODNavigationSlice";
 import DeanNavigationSliceReducer from "./reducers/DeanNavigationSlice";
 import ExamDptNavigationSliceReducer from "./reducers/ExamDptNavigationSlice";
+import RegistarNavigationSliceReducer from "./reducers/RegistarNavigationSlice";
 
 
 const store = configureStore({
@@ -13,7 +14,8 @@ const store = configureStore({
         dptSecretaryNavigationSlice:DptSecretaryNavigationSliceReducer,
         hodNavigationSlice:HODNavigationSliceReducer,
         deanNavigationSlice:DeanNavigationSliceReducer,
-        examDptNavigationSlice:ExamDptNavigationSliceReducer
+        examDptNavigationSlice:ExamDptNavigationSliceReducer,
+        registarNavigationSlice: RegistarNavigationSliceReducer
     }
 })
 

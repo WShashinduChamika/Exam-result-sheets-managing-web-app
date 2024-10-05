@@ -12,6 +12,7 @@ import { dptClickAllResult, dptClickApprovedResultView, dptClickHistory, dptClic
 import { hodClickAllResult, hodClickApprovedResultView, hodClickHistory, hodClickViewResult } from '../store/reducers/HODNavigationSlice';
 import { deanClickAllReultSheets, deanClickApprovedCollection, deanClickApprovedCollectionView, deanClickApprovedResultSheetsCollectionView, deanClickApprovedResultView, deanClickCollection, deanClickCollectionView, deanClickHistory, deanClickResultSheetsCollectionView, deanClickViewResult } from '../store/reducers/DeanNavigationSlice';
 import { examDepartmentClickApprovedCollection, examDepartmentClickApprovedCollectionView, examDepartmentClickApprovedResultSheetsCollectionView, examDepartmentClickCollection, examDepartmentClickCollectionView, examDepartmentClickResultSheetsCollectionView } from '../store/reducers/ExamDptNavigationSlice';
+import { registarClickApprovedCollection, registarClickApprovedCollectionView, registarClickApprovedResultSheetsCollectionView, registarClickCollection, registarClickCollectionView, registarClickResultSheetsCollectionView } from '../store/reducers/RegistarNavigationSlice';
 
 function SideNavBar({ userType }) {
 
@@ -88,6 +89,17 @@ function SideNavBar({ userType }) {
         }
     ]
 
+    const registarNavLinks = [
+        {
+            name:'Collection',
+            icon:<PiSquaresFourBold size={20} color='white' />
+        },
+        {
+            name:'Collection History',
+            icon:<FaHourglassEnd size={20} color='white' />
+        }
+    ]
+
 
     const [sideNavLinks, setSideNavLinks] = useState([])
     const [activeLink, setActiveLink] = useState('')
@@ -107,6 +119,9 @@ function SideNavBar({ userType }) {
             setActiveLink('All Result Sheets')
         }else if(userType === 'examDpt'){
             setSideNavLinks(examDepartmentNavLinks)
+            setActiveLink('Collection')
+        }else if(userType === 'registar'){
+            setSideNavLinks(registarNavLinks)
             setActiveLink('Collection')
         }
     }
@@ -355,6 +370,37 @@ function SideNavBar({ userType }) {
             }
         }
 
+        if(userType === 'registar'){
+            if(name === 'Collection'){
+                if(!registarNavigation.isClickedCollection){
+                    dispatch(registarClickCollection(true))
+                }
+                if(registarNavigation.isClickedCollectionView){
+                    dispatch(registarClickCollectionView(false))
+                }
+                if(registarNavigation.isClickedResultSheetsCollectionView){
+                    dispatch(registarClickResultSheetsCollectionView(false))
+                }
+                if(registarNavigation.isClickedApprovedCollection){
+                    dispatch(registarClickApprovedCollection(false))
+                }
+            }
+            if(name === 'Collection History'){
+                if(!registarNavigation.isClickedApprovedCollection){
+                    dispatch(registarClickApprovedCollection(true))
+                }
+                if(registarNavigation.isClickedApprovedCollectionView){
+                    dispatch(registarClickApprovedCollectionView(false)) 
+                }
+                if(registarNavigation.isClickedApprovedResultSheetsCollectionView){
+                    dispatch(registarClickApprovedResultSheetsCollectionView(false))
+                }
+                if(registarNavigation.isClickedCollection){
+                    dispatch(registarClickCollection(false))
+                }
+            }
+        }
+
     }
 
 
@@ -364,6 +410,7 @@ function SideNavBar({ userType }) {
     const hodNavigation = useSelector((store) => store.hodNavigationSlice)
     const deanNavigation = useSelector((store) => store.deanNavigationSlice)
     const examDptNavigation = useSelector((store) => store.examDptNavigationSlice)
+    const registarNavigation = useSelector((store) => store.registarNavigationSlice)
 
     const dispatch = useDispatch()
 

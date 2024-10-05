@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deanClickApprovedCollectionView, deanClickCollectionView, deanClickViewResult } from '../store/reducers/DeanNavigationSlice'
 import { examDepartmentClickApprovedCollectionView, examDepartmentClickCollectionView, examDepartmentClickResultSheetsCollectionView } from '../store/reducers/ExamDptNavigationSlice'
+import {  registarClickApprovedCollectionView, registarClickCollectionView } from '../store/reducers/RegistarNavigationSlice'
 
 function ResultCollection({ userType, resultSheets }) {
     const [resultSheetList, setResulSheeetList] = useState(resultSheets)
 
     const deanNavigation = useSelector((store) => store.deanNavigationSlice)
     const examDptNavigation = useSelector((store) => store.examDptNavigationSlice)
+    const registrarNavigation = useSelector((store) => store.registarNavigationSlice)
 
     const dispatch = useDispatch()
 
@@ -31,6 +33,15 @@ function ResultCollection({ userType, resultSheets }) {
             }
             if (!examDptNavigation.isClickedApprovedCollectionView) {
                 dispatch(examDepartmentClickApprovedCollectionView(true))
+            }
+        }
+
+        if(userType === 'registar') {
+            if(!registrarNavigation.isClickedCollectionView) {
+                dispatch(registarClickCollectionView(true))
+            }
+            if(!registrarNavigation.isClickedApprovedCollectionView) {
+                dispatch(registarClickApprovedCollectionView(true))
             }
         }
     }

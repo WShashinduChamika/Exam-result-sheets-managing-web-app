@@ -58,7 +58,9 @@ function LoginPage() {
                 navigate('/dean')
             }else if(username.current.value === 'examDepartment'){
                 navigate('/examDepartment')
-            }   
+            }else if(username.current.value === 'registar'){
+                navigate('/registar')
+            }
 
 
         } catch (err) {
