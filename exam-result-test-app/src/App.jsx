@@ -8,23 +8,25 @@ import RegisterPage from './pages/RegisterPage'
 import DeanPage from './pages/DeanPage'
 import ExamDepartmentPage from './pages/ExamDepartmentPage'
 import RegistarPage from './pages/RegistarPage'
+import VCPage from './pages/VCPage'
 
 
 function App() {
-  
+
   return (
-    
+
     <>
       <Router>
         <Routes>
           <Route path='/' element={<LoginPage />} />
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/lecture' element={<LecturePage />} />
-          <Route path='/dptSecretary' element={<DptSecretary/>} />
-          <Route path='/hod' element={<HODPage/>} />
-          <Route path='/dean' element={<DeanPage/>} />
+          <Route path='/dptSecretary' element={<DptSecretary />} />
+          <Route path='/hod' element={<HODPage />} />
+          <Route path='/dean' element={<DeanPage />} />
           <Route path='/examDepartment' element={<ExamDepartmentPage />} />
           <Route path='/registar' element={<RegistarPage />} />
+          <Route path='/vc' element={<VCPage />} />
         </Routes>
       </Router>
     </>

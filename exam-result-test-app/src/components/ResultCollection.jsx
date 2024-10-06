@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deanClickApprovedCollectionView, deanClickCollectionView, deanClickViewResult } from '../store/reducers/DeanNavigationSlice'
 import { examDepartmentClickApprovedCollectionView, examDepartmentClickCollectionView, examDepartmentClickResultSheetsCollectionView } from '../store/reducers/ExamDptNavigationSlice'
-import {  registarClickApprovedCollectionView, registarClickCollectionView } from '../store/reducers/RegistarNavigationSlice'
+import { registarClickApprovedCollectionView, registarClickCollectionView } from '../store/reducers/RegistarNavigationSlice'
+import { vcClickApprovedCollectionView, vcClickCollectionView } from '../store/reducers/VCNavigationSlice'
+import { FaFileDownload } from "react-icons/fa";
 
 function ResultCollection({ userType, resultSheets }) {
     const [resultSheetList, setResulSheeetList] = useState(resultSheets)
@@ -10,6 +12,7 @@ function ResultCollection({ userType, resultSheets }) {
     const deanNavigation = useSelector((store) => store.deanNavigationSlice)
     const examDptNavigation = useSelector((store) => store.examDptNavigationSlice)
     const registrarNavigation = useSelector((store) => store.registarNavigationSlice)
+    const vcNavigation = useSelector((store) => store.vcNavigationSlice)
 
     const dispatch = useDispatch()
 
@@ -36,12 +39,21 @@ function ResultCollection({ userType, resultSheets }) {
             }
         }
 
-        if(userType === 'registar') {
-            if(!registrarNavigation.isClickedCollectionView) {
+        if (userType === 'registar') {
+            if (!registrarNavigation.isClickedCollectionView) {
                 dispatch(registarClickCollectionView(true))
             }
-            if(!registrarNavigation.isClickedApprovedCollectionView) {
+            if (!registrarNavigation.isClickedApprovedCollectionView) {
                 dispatch(registarClickApprovedCollectionView(true))
+            }
+        }
+
+        if (userType === 'vc') {
+            if (!vcNavigation.isClickedCollectionView) {
+                dispatch(vcClickCollectionView(true))
+            }
+            if (!vcNavigation.isClickedApprovedCollectionView) {
+                dispatch(vcClickApprovedCollectionView(true))
             }
         }
     }
@@ -65,10 +77,10 @@ function ResultCollection({ userType, resultSheets }) {
                     <div className='h-10 col-span-1 flex items-center justify-center'>
                         <p className='text-lg text-black'>Batch</p>
                     </div>
-                    <div className={`h-10 ${userType!=='dean'?"col-spane-1":"col-span-2"} flex items-center justify-center`}>
+                    <div className={`h-10 ${userType !== 'dean' ? "col-spane-1" : "col-span-2"} flex items-center justify-center`}>
                         <p className='text-lg text-black'>Semester</p>
                     </div>
-                    <div className={`h-10 ${userType!=='dean'?"col-spane-1":"col-span-2"} flex items-center justify-center`}>
+                    <div className={`h-10 ${userType !== 'dean' ? "col-spane-1" : "col-span-2"} flex items-center justify-center`}>
                         <p className='text-lg text-black'>Action</p>
                     </div>
                 </div>
@@ -85,22 +97,29 @@ function ResultCollection({ userType, resultSheets }) {
                         <div className='col-span-3 flex items-center justify-center'>
                             <p className='py-2 text-[16px] text-black'>Computing and Information System</p>
                         </div>
-                        <div className={`${userType!==`dean`?"col-span-3":"col-span-4"} flex items-center justify-center`}>
+                        <div className={`${userType !== `dean` ? "col-span-3" : "col-span-4"} flex items-center justify-center`}>
                             <p className='py-2 text-[16px] text-primary-txt'>Bsc.(Hons) Computing and Information System</p>
                         </div>
-                        <div className={`${userType!==`dean`?"col-span-1":"col-span-2"} flex items-center justify-center`}>
+                        <div className={`${userType !== `dean` ? "col-span-1" : "col-span-2"} flex items-center justify-center`}>
                             <p className='py-2 text-[16px] text-black'>20</p>
                         </div>
-                        <div className={`${userType!==`dean`?"col-span-1":"col-span-2"} flex items-center justify-center`}>
+                        <div className={`${userType !== `dean` ? "col-span-1" : "col-span-2"} flex items-center justify-center`}>
                             <p className='text-[16px] text-black'>1</p>
                         </div>
-                        <div className={`py-2 ${userType!==`dean`?"col-span-1":"col-span-2"} flex items-center justify-center gap-3`}>
+                        <div className={`py-2 ${userType !== `dean` ? "col-span-1" : "col-span-2"} flex items-center justify-center gap-3`}>
                             <button
                                 onClick={handleViewResult}
-                                className='py-1 px-4 flex itmes-center justify-center bg-view-btn-bg text-black text-[14px] rounded-3xl'
+                                className={`py-1 ${vcNavigation.isApprovedResult && userType === 'examDpt'? "px-2 text-[12px]":"px-4 text-[14px]"} flex itmes-center justify-center bg-view-btn-bg text-black  rounded-3xl`}
                             >
                                 View
                             </button>
+                            {
+                                vcNavigation.isApprovedResult && userType === 'examDpt'?
+                                    <div className='cursor-pointer'>
+                                        <FaFileDownload color='#0052CC' size={25} />
+                                    </div>
+                                    : <></>
+                            }
                         </div>
                     </div>
                 ))}

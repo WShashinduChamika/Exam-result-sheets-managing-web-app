@@ -60,6 +60,8 @@ function LoginPage() {
                 navigate('/examDepartment')
             }else if(username.current.value === 'registar'){
                 navigate('/registar')
+            }else if(username.current.value === 'vc'){
+                navigate('/vc')
             }
 
 
