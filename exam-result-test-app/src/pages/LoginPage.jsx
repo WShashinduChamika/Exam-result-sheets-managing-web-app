@@ -64,6 +64,8 @@ function LoginPage() {
                 navigate('/vc')
             }else if(username.current.value === 'student'){
                 navigate('/publishedResult')
+            }else if(username.current.value === 'admin'){
+                navigate('/admin')
             }
 
 

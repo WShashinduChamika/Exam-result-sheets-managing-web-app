@@ -6,6 +6,7 @@ import { BiSolidLogOut } from "react-icons/bi";
 import { PiSquaresFourBold } from "react-icons/pi";
 import { IoSend } from "react-icons/io5";
 import { FaHourglassEnd } from "react-icons/fa6";
+import { TiUserAdd } from "react-icons/ti";
 import { useDispatch, useSelector } from 'react-redux';
 import { clickAddResult, clickApprovalRequestResults, clickApprovalRequestView, clickDetailsProceed, clickedAprovalPendingResults, clickHistory, clickHistoryView, clickViewResult } from '../store/reducers/LectureNavigationSlice';
 import { dptClickAllResult, dptClickApprovedResultView, dptClickHistory, dptClickViewResult } from '../store/reducers/DptSecretaryNavigationSlice';
@@ -14,6 +15,7 @@ import { deanClickAllReultSheets, deanClickApprovedCollection, deanClickApproved
 import { examDepartmentClickApprovedCollection, examDepartmentClickApprovedCollectionView, examDepartmentClickApprovedResultSheetsCollectionView, examDepartmentClickCollection, examDepartmentClickCollectionView, examDepartmentClickResultSheetsCollectionView } from '../store/reducers/ExamDptNavigationSlice';
 import { registarClickApprovedCollection, registarClickApprovedCollectionView, registarClickApprovedResultSheetsCollectionView, registarClickCollection, registarClickCollectionView, registarClickResultSheetsCollectionView } from '../store/reducers/RegistarNavigationSlice';
 import { vcClickApprovedCollection, vcClickApprovedCollectionView, vcClickApprovedResultSheetsCollectionView, vcClickCollection, vcClickCollectionView, vcClickResultSheetsCollectionView } from '../store/reducers/VCNavigationSlice';
+import { adminClickCreateUser, adminClickUserList, adminClickUserListView } from '../store/reducers/AdminNavigationSlice';
 
 function SideNavBar({ userType }) {
 
@@ -112,6 +114,17 @@ function SideNavBar({ userType }) {
         }
     ]
 
+    const adminNavLinks = [
+        {
+            name:'Create User',
+            icon: <TiUserAdd size={20} color='white' />
+        },
+        {
+            name: 'User List',
+            icon: <PiSquaresFourBold size={20} color='white' />
+        }
+    ]
+
 
     const [sideNavLinks, setSideNavLinks] = useState([])
     const [activeLink, setActiveLink] = useState('')
@@ -138,6 +151,9 @@ function SideNavBar({ userType }) {
         }else if(userType === 'vc'){
             setSideNavLinks(vcNavLinks)
             setActiveLink('Collection')
+        }else if(userType === 'admin'){
+            setSideNavLinks(adminNavLinks)
+            setActiveLink('Create User')
         }
     }
 
@@ -447,9 +463,29 @@ function SideNavBar({ userType }) {
             }
         }
 
+        if(userType === 'admin'){
+            if(name==='Create User'){
+                if(!adminNavigation.isClickedCreateUser){
+                    dispatch(adminClickCreateUser(true))
+                }
+                if(adminNavigation.isClickedUserList){
+                    dispatch(adminClickUserList(false))
+                }
+            }
+            if(name === 'User List'){
+                if(!adminNavigation.isClickedUserList){
+                    dispatch(adminClickUserList(true))
+                }
+                if(adminNavigation.isClickedUserListView){
+                    dispatch(adminClickUserListView(false))
+                }
+                if(adminNavigation.isClickedCreateUser){
+                    dispatch(adminClickCreateUser(false))
+                }
+            }
+        }
+
     }
-
-
 
     const lectureNavigation = useSelector((store) => store.lectureNavigationSlice)
     const dptSecretaryNavigation = useSelector((store) => store.dptSecretaryNavigationSlice)
@@ -458,6 +494,7 @@ function SideNavBar({ userType }) {
     const examDptNavigation = useSelector((store) => store.examDptNavigationSlice)
     const registarNavigation = useSelector((store) => store.registarNavigationSlice)
     const vcNavigation = useSelector((store)=> store.vcNavigationSlice)
+    const adminNavigation = useSelector((store)=>store.adminNavigationSlice)
 
     const dispatch = useDispatch()
 
@@ -467,7 +504,7 @@ function SideNavBar({ userType }) {
 
     return (
         <div>
-            <div className='fixed w-1/5 flex flex-col h-screen max-h-screen bg-primary'>
+            <div className='fixed w-1/5 min-w-[273px] flex flex-col h-screen max-h-screen bg-primary'>
 
                 <div className='flex items-center justify-center h-32 w-full'>
                     <h1 className='text-white text-2xl font-bold'>Logo</h1>

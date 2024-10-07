@@ -10,6 +10,7 @@ import ExamDepartmentPage from './pages/ExamDepartmentPage'
 import RegistarPage from './pages/RegistarPage'
 import VCPage from './pages/VCPage'
 import PublishedResultPage from './pages/PublishedResultPage'
+import AdminPage from './pages/AdminPage'
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path='/registar' element={<RegistarPage />} />
           <Route path='/vc' element={<VCPage />} />
           <Route path='/publishedResult' element={<PublishedResultPage />} />
+          <Route path='/admin' element={<AdminPage />} />
         </Routes>
       </Router>
     </>

@@ -7,6 +7,7 @@ import ExamDptNavigationSliceReducer from "./reducers/ExamDptNavigationSlice";
 import RegistarNavigationSliceReducer from "./reducers/RegistarNavigationSlice";
 import VCNavigationSliceReducer from "./reducers/VCNavigationSlice";
 import PublishedResultNavigationSliceReducer from "./reducers/PublishedResultNavigationSlice";
+import AdminNavigationSliceReducer from "./reducers/AdminNavigationSlice"
 
 
 const store = configureStore({
@@ -19,7 +20,8 @@ const store = configureStore({
         examDptNavigationSlice:ExamDptNavigationSliceReducer,
         registarNavigationSlice: RegistarNavigationSliceReducer,
         vcNavigationSlice:VCNavigationSliceReducer,
-        publishedResultNavigationSlice:PublishedResultNavigationSliceReducer
+        publishedResultNavigationSlice:PublishedResultNavigationSliceReducer,
+        adminNavigationSlice:AdminNavigationSliceReducer
     }
 })
 
