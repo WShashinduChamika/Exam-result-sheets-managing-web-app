@@ -4,6 +4,7 @@ import { deanClickApprovedCollectionView, deanClickApprovedResultSheetsCollectio
 import { examDepartmentClickApprovedResultSheetsCollectionView, examDepartmentClickResultSheetsCollectionView } from '../store/reducers/ExamDptNavigationSlice'
 import { registarClickApprovedResultSheetsCollectionView, registarClickResultSheetsCollectionView } from '../store/reducers/RegistarNavigationSlice'
 import { vcClickApprovedResultSheetsCollectionView, vcClickResultSheetsCollectionView } from '../store/reducers/VCNavigationSlice'
+import { clickResultSheetsCollectionView } from '../store/reducers/PublishedResultNavigationSlice'
 
 function ResultSheetsCollection({userType,resultSheets}) {
 
@@ -13,6 +14,7 @@ function ResultSheetsCollection({userType,resultSheets}) {
     const examDptNavigation = useSelector((store) => store.examDptNavigationSlice)
     const registrarNavigation = useSelector((store) => store.registarNavigationSlice)
     const vcNavigation = useSelector((store)=>store.vcNavigationSlice)
+    const publishedResultNavigation = useSelector((store) => store.publishedResultNavigationSlice)
 
     const dispatch = useDispatch()
 
@@ -54,6 +56,12 @@ function ResultSheetsCollection({userType,resultSheets}) {
             }
             if(!vcNavigation.isClickedApprovedResultSheetsCollectionView){
                 dispatch(vcClickApprovedResultSheetsCollectionView(true))
+            }
+        }
+
+        if(userType === 'student'){
+            if(!publishedResultNavigation.isClickedResultSheetsCollectionView){
+                dispatch(clickResultSheetsCollectionView(true))
             }
         }
 

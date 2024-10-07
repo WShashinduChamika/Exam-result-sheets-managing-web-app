@@ -5,6 +5,7 @@ import { examDepartmentClickApprovedCollectionView, examDepartmentClickCollectio
 import { registarClickApprovedCollectionView, registarClickCollectionView } from '../store/reducers/RegistarNavigationSlice'
 import { vcClickApprovedCollectionView, vcClickCollectionView } from '../store/reducers/VCNavigationSlice'
 import { FaFileDownload } from "react-icons/fa";
+import { clickCollectionView } from '../store/reducers/PublishedResultNavigationSlice'
 
 function ResultCollection({ userType, resultSheets }) {
     const [resultSheetList, setResulSheeetList] = useState(resultSheets)
@@ -13,6 +14,7 @@ function ResultCollection({ userType, resultSheets }) {
     const examDptNavigation = useSelector((store) => store.examDptNavigationSlice)
     const registrarNavigation = useSelector((store) => store.registarNavigationSlice)
     const vcNavigation = useSelector((store) => store.vcNavigationSlice)
+    const publishedResultNavigation = useSelector((store) => store.publishedResultNavigationSlice)
 
     const dispatch = useDispatch()
 
@@ -56,6 +58,11 @@ function ResultCollection({ userType, resultSheets }) {
                 dispatch(vcClickApprovedCollectionView(true))
             }
         }
+        if (userType === 'student') {
+            if(!publishedResultNavigation.isClickedCollectionView){
+                dispatch(clickCollectionView(true))
+            }
+        }
     }
 
     return (
@@ -64,23 +71,23 @@ function ResultCollection({ userType, resultSheets }) {
                 <div className='pb-2 w-full grid grid-cols-12 gap-1 border-black border-b-[1px]'>
                     {
                         userType !== 'dean' ?
-                            <div className='h-10 col-span-2 flex items-center justify-center'>
+                            <div className='h-10 col-span-3 flex items-center justify-center'>
                                 <p className='text-lg text-black'>Faculty</p>
                             </div> : <></>
                     }
                     <div className='h-10 col-span-3 flex items-center justify-center'>
                         <p className='text-lg text-black'>Department</p>
                     </div>
-                    <div className='h-10 col-span-4 flex items-center justify-center'>
+                    <div className={`h-10 ${userType !== 'dean' ? "col-span-3" : "col-span-4"} flex items-center justify-center`}>
                         <p className='text-lg text-primary-txt'>Degree</p>
                     </div>
-                    <div className='h-10 col-span-1 flex items-center justify-center'>
+                    <div className={`${userType !== `dean` ? "col-span-1" : "col-span-2"} flex items-center justify-center`}>
                         <p className='text-lg text-black'>Batch</p>
                     </div>
                     <div className={`h-10 ${userType !== 'dean' ? "col-spane-1" : "col-span-2"} flex items-center justify-center`}>
                         <p className='text-lg text-black'>Semester</p>
                     </div>
-                    <div className={`h-10 ${userType !== 'dean' ? "col-spane-1" : "col-span-2"} flex items-center justify-center`}>
+                    <div className={`h-10 ${userType !== 'dean' ? "col-spane-1" : "col-span-1"} flex items-center justify-center`}>
                         <p className='text-lg text-black'>Action</p>
                     </div>
                 </div>
@@ -106,15 +113,15 @@ function ResultCollection({ userType, resultSheets }) {
                         <div className={`${userType !== `dean` ? "col-span-1" : "col-span-2"} flex items-center justify-center`}>
                             <p className='text-[16px] text-black'>1</p>
                         </div>
-                        <div className={`py-2 ${userType !== `dean` ? "col-span-1" : "col-span-2"} flex items-center justify-center gap-3`}>
+                        <div className={`py-2 ${userType !== `dean` ? "col-span-1" : "col-span-1"} flex items-center justify-center gap-3`}>
                             <button
                                 onClick={handleViewResult}
-                                className={`py-1 ${vcNavigation.isApprovedResult && userType === 'examDpt'? "px-2 text-[12px]":"px-4 text-[14px]"} flex itmes-center justify-center bg-view-btn-bg text-black  rounded-3xl`}
+                                className={`py-1 ${vcNavigation.isApprovedResult && examDptNavigation.isClickedApprovedCollection && userType === 'examDpt'? "px-2 text-[12px]":"px-4 text-[14px]"} flex itmes-center justify-center bg-view-btn-bg text-black  rounded-3xl`}
                             >
                                 View
                             </button>
                             {
-                                vcNavigation.isApprovedResult && userType === 'examDpt'?
+                                vcNavigation.isApprovedResult && examDptNavigation.isClickedApprovedCollection &&  userType === 'examDpt'?
                                     <div className='cursor-pointer'>
                                         <FaFileDownload color='#0052CC' size={25} />
                                     </div>

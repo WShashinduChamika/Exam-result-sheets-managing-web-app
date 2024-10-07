@@ -3,10 +3,11 @@ import uniLogo from '../assets/uniLogo.png'
 import { IoNotificationsOutline } from "react-icons/io5";
 import { IoIosSettings } from "react-icons/io";
 
-function TopVerticalBar() {
+function TopVerticalBar({userType}) {
+    console.log(userType)
     return (
         <div >
-            <div className='fixed px-10 w-4/5 flex justify-between bg-tertiary-bg'>
+            <div className={`fixed px-10 ${userType==='student'?"w-screen":"w-4/5"} flex justify-between bg-tertiary-bg`}>
                 <div className='py-3 flex items-center gap-3'>
                     <img src={uniLogo}></img>
                     <h2 className='text-lg'>Sabaragamuwa University of Sri Lanka</h2>
