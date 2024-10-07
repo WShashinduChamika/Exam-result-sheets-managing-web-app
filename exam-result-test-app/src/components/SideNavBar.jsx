@@ -164,74 +164,70 @@ function SideNavBar({ userType }) {
             if (name === 'Add Results') {
                 if (!lectureNavigation.isClickedAddResult) {
                     dispatch(clickAddResult(true))
+                }
+                if(lectureNavigation.isSetupDetails){
                     dispatch(clickDetailsProceed(false))
                 }
                 if (lectureNavigation.isClickedApprovalPendingResults) {
                     dispatch(clickedAprovalPendingResults(false))
-                    dispatch(clickViewResult(false))
                 }
                 if (lectureNavigation.isClickedApprovalRequestResults) {
                     dispatch(clickApprovalRequestResults(false))
-                    dispatch(clickApprovalRequestView(false))
                 }
                 if (lectureNavigation.isClickedHistory) {
                     dispatch(clickHistory(false))
-                    dispatch(clickHistoryView(false))
                 }
             }
             if (name === 'Approve Pending Results') {
                 if (!lectureNavigation.isClickedApprovalPendingResults) {
                     dispatch(clickedAprovalPendingResults(true))
+                }
+                if(lectureNavigation.isclickedViewResult){
                     dispatch(clickViewResult(false))
                 }
                 if (lectureNavigation.isClickedAddResult) {
                     dispatch(clickAddResult(false))
-                    dispatch(clickDetailsProceed(false))
                 }
                 if (lectureNavigation.isClickedApprovalRequestResults) {
                     dispatch(clickApprovalRequestResults(false))
-                    dispatch(clickApprovalRequestView(false))
                 }
                 if (lectureNavigation.isClickedHistory) {
                     dispatch(clickHistory(false))
-                    dispatch(clickHistoryView(false))
                 }
 
             }
             if (name === 'Approval Request Results') {
                 if (!lectureNavigation.isClickedApprovalRequestResults) {
                     dispatch(clickApprovalRequestResults(true))
+                }
+                if(lectureNavigation.isClickedApprovalRequestView){
                     dispatch(clickApprovalRequestView(false))
                 }
                 if (lectureNavigation.isClickedAddResult) {
                     dispatch(clickAddResult(false))
-                    dispatch(clickDetailsProceed(false))
                 }
                 if (lectureNavigation.isClickedApprovalPendingResults) {
                     dispatch(clickedAprovalPendingResults(false))
-                    dispatch(clickViewResult(false))
                 }
                 if (lectureNavigation.isClickedHistory) {
                     dispatch(clickHistory(false))
-                    dispatch(clickHistoryView(false))
                 }
             }
             if (name === 'History') {
                 if (!lectureNavigation.isClickedHistory) {
                     dispatch(clickHistory(true))
+                }
+                if(lectureNavigation.isClickedHistoryView){
                     dispatch(clickHistoryView(false))
                 }
                 if (lectureNavigation.isClickedAddResult) {
                     dispatch(clickAddResult(false))
-                    dispatch(clickDetailsProceed(false))
                 }
                 if (lectureNavigation.isClickedApprovalRequestResults) {
                     dispatch(clickApprovalRequestResults(false))
-                    dispatch(clickApprovalRequestView(false))
                 }
                 if (lectureNavigation.isClickedApprovalPendingResults) {
                     dispatch(clickedAprovalPendingResults(false))
-                    dispatch(clickViewResult(false))
                 }
             }
         }
@@ -241,21 +237,23 @@ function SideNavBar({ userType }) {
             if (name === 'All Results') {
                 if (!dptSecretaryNavigation.isClickedAllResults) {
                     dispatch(dptClickAllResult(true))
+                }
+                if(dptSecretaryNavigation.isClickedViewResult){
                     dispatch(dptClickViewResult(false))
                 }
                 if (dptSecretaryNavigation.isClickedHistory) {
                     dispatch(dptClickHistory(false))
-                    dispatch(dptClickApprovedResultView(false))
                 }
             }
             if (name === 'History') {
                 if (!dptSecretaryNavigation.isClickedHistory) {
                     dispatch(dptClickHistory(true))
+                }
+                if(dptSecretaryNavigation.isClickedApprovedResultView){
                     dispatch(dptClickApprovedResultView(false))
                 }
                 if (dptSecretaryNavigation.isClickedAllResults) {
                     dispatch(dptClickAllResult(false))
-                    dispatch(dptClickViewResult(false))
                 }
             }
         }
@@ -265,11 +263,12 @@ function SideNavBar({ userType }) {
                 //console.log("All Result Sheets")
                 if (!hodNavigation.isClickedAllResult) {
                     dispatch(hodClickAllResult(true))
+                }
+                if (hodNavigation.isClickedViewResult){
                     dispatch(hodClickViewResult(false))
                 }
                 if (hodNavigation.isClickedHistory) {
                     dispatch(hodClickHistory(false))
-                    dispatch(hodClickApprovedResultView(false))
                 }
 
             }
@@ -277,11 +276,12 @@ function SideNavBar({ userType }) {
             if (name === 'History') {
                 if (!hodNavigation.isClickedHistory) {
                     dispatch(hodClickHistory(true))
+                }
+                if(hodNavigation.isClickedApprovedResultView){
                     dispatch(hodClickApprovedResultView(false))
                 }
                 if (hodNavigation.isClickedAllResult) {
                     dispatch(hodClickAllResult(false))
-                    dispatch(hodClickViewResult(false))
                 }
             }
         }
