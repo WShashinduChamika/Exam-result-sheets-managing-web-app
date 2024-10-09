@@ -16,11 +16,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Fundamental of Information System",
-                                                subjectCode: "IS1101"
+                                                subjectCode: "IS1101",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Theories of Information System",
-                                                subjectCode: "IS1102"
+                                                subjectCode: "IS1102",
+                                                credits: 2
                                             }
                                         ]
                                     },
@@ -29,11 +31,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Object Oriented Programming",
-                                                subjectCode: "IS1201"
+                                                subjectCode: "IS1201",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Object Oriented Practicum",
-                                                subjectCode: "IS1202"
+                                                subjectCode: "IS1202",
+                                                credits: 1
                                             }
                                         ]
                                     }
@@ -47,11 +51,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Data Structures and Algorithms",
-                                                subjectCode: "IS2101"
+                                                subjectCode: "IS2101",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Database Management Systems",
-                                                subjectCode: "IS2102"
+                                                subjectCode: "IS2102",
+                                                credits: 2
                                             }
                                         ]
                                     },
@@ -60,11 +66,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Software Engineering",
-                                                subjectCode: "IS2201"
+                                                subjectCode: "IS2201",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Web Development",
-                                                subjectCode: "IS2202"
+                                                subjectCode: "IS2202",
+                                                credits: 2
                                             }
                                         ]
                                     }
@@ -78,11 +86,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Operating Systems",
-                                                subjectCode: "IS3101"
+                                                subjectCode: "IS3101",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Computer Networks",
-                                                subjectCode: "IS3102"
+                                                subjectCode: "IS3102",
+                                                credits: 1
                                             }
                                         ]
                                     },
@@ -91,11 +101,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Mobile Application Development",
-                                                subjectCode: "IS3201"
+                                                subjectCode: "IS3201",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Artificial Intelligence",
-                                                subjectCode: "IS3202"
+                                                subjectCode: "IS3202",
+                                                credits: 2
                                             }
                                         ]
                                     }
@@ -109,11 +121,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Machine Learning",
-                                                subjectCode: "IS4101"
+                                                subjectCode: "IS4101",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Cyber Security",
-                                                subjectCode: "IS4102"
+                                                subjectCode: "IS4102",
+                                                credits: 2
                                             }
                                         ]
                                     },
@@ -122,11 +136,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Final Year Project",
-                                                subjectCode: "IS4201"
+                                                subjectCode: "IS4201",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Entrepreneurship in Computing",
-                                                subjectCode: "IS4202"
+                                                subjectCode: "IS4202",
+                                                credits: 1
                                             }
                                         ]
                                     }
@@ -150,11 +166,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Introduction to Software Engineering",
-                                                subjectCode: "SE1101"
+                                                subjectCode: "SE1101",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Programming Fundamentals",
-                                                subjectCode: "SE1102"
+                                                subjectCode: "SE1102",
+                                                credits: 2
                                             }
                                         ]
                                     },
@@ -163,11 +181,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Object Oriented Programming",
-                                                subjectCode: "SE1201"
+                                                subjectCode: "SE1201",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Software Requirements Engineering",
-                                                subjectCode: "SE1202"
+                                                subjectCode: "SE1202",
+                                                credits: 2
                                             }
                                         ]
                                     }
@@ -181,11 +201,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Data Structures and Algorithms",
-                                                subjectCode: "SE2101"
+                                                subjectCode: "SE2101",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Software Design and Architecture",
-                                                subjectCode: "SE2102"
+                                                subjectCode: "SE2102",
+                                                credits: 2
                                             }
                                         ]
                                     },
@@ -194,11 +216,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Database Systems",
-                                                subjectCode: "SE2201"
+                                                subjectCode: "SE2201",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Web Application Development",
-                                                subjectCode: "SE2202"
+                                                subjectCode: "SE2202",
+                                                credits: 2
                                             }
                                         ]
                                     }
@@ -212,11 +236,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Software Testing and Quality Assurance",
-                                                subjectCode: "SE3101"
+                                                subjectCode: "SE3101",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Operating Systems",
-                                                subjectCode: "SE3102"
+                                                subjectCode: "SE3102",
+                                                credits: 2
                                             }
                                         ]
                                     },
@@ -225,11 +251,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Software Project Management",
-                                                subjectCode: "SE3201"
+                                                subjectCode: "SE3201",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Mobile Application Development",
-                                                subjectCode: "SE3202"
+                                                subjectCode: "SE3202",
+                                                credits: 2
                                             }
                                         ]
                                     }
@@ -243,11 +271,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Advanced Software Engineering",
-                                                subjectCode: "SE4101"
+                                                subjectCode: "SE4101",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Cloud Computing",
-                                                subjectCode: "SE4102"
+                                                subjectCode: "SE4102",
+                                                credits: 2
                                             }
                                         ]
                                     },
@@ -256,11 +286,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Final Year Project",
-                                                subjectCode: "SE4201"
+                                                subjectCode: "SE4201",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Entrepreneurship for Software Engineers",
-                                                subjectCode: "SE4202"
+                                                subjectCode: "SE4202",
+                                                credits: 1
                                             }
                                         ]
                                     }
@@ -271,6 +303,7 @@ const data = [
                 ]
             }
         ]
+
     },
     {
         faculty: "Faculty of Applied Sciences",

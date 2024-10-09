@@ -54,6 +54,7 @@ function DetailsForm({ setIsSetupDetails, isSetupDetails }) {
     const [subjectName, setSubjectName] = useState('')
     var subjectCodes = []
     const [subjectCode, setSubjectCode] = useState('')
+    const [subjectCredit, setSubjectCredit] = useState(0)
 
     if (semesterName !== '') {
         const faculty = data.filter((faculty) => faculty.faculty === facultyName)
@@ -80,6 +81,18 @@ function DetailsForm({ setIsSetupDetails, isSetupDetails }) {
         console.log(semesterName)
         console.log(subjectName)
         console.log(subjectCode)
+        console.log(subjectCredit)
+        if (subjectName !== '') {
+            const faculty = data.find((faculty) => faculty.faculty === facultyName);
+            const department = faculty.departments.find((dpt) => dpt.dptName === departmentName);
+            const degree = department.degrees.find((degree) => degree.degreeName === degreeName);
+            const batch = degree.batches.find((batch) => batch.batchName === batchName);
+            const semester = batch.semesters.find((semester) => semester.semesterName === semesterName);
+            const subject = semester.subjects.find((subject) => subject.subjectName === subjectName);
+            if (subject) {
+                setSubjectCredit(subject.credits);
+            }
+        }
     }, [facultyName, departmentName, degreeName, batchName, semesterName, subjectName, subjectCode])
 
     return (
@@ -99,6 +112,12 @@ function DetailsForm({ setIsSetupDetails, isSetupDetails }) {
                     </div>
                     <DropDown type="Subject Name" options={subjects} setValue={setSubjectName} />
                     <DropDown type="Subject Code" options={subjectCodes} setValue={setSubjectCode} />
+                    <div>
+                        <div className='p-4 w-full h-12 flex items-center justify-between border-[1px] border-black rounded-lg focus:border-secondary focus:border-2 active:border-white duration-300'>
+                            <p>Number of Credits</p>
+                            <p className='text-lg'>{subjectCredit}</p>
+                        </div>
+                    </div>
                 </div>
                 <div className='mx-10 mt-5 flex justify-end gap-10'>
                     <button className='min-w-36 h-12 hover:bg-secondary text-black hover:text-white text-[16px] border-black hover:border-btn-border border-[1px]'>Cancel</button>
