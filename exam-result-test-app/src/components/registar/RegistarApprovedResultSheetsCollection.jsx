@@ -3,6 +3,7 @@ import ResultSheetsCollection from '../ResultSheetsCollection'
 import { useDispatch } from 'react-redux'
 import { IoChevronBack } from 'react-icons/io5'
 import { registarClickApprovedCollectionView } from '../../store/reducers/RegistarNavigationSlice'
+import GPATable from '../GPATable'
 
 function RegistarApprovedResultSheetsCollection() {
     const sheets = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
@@ -11,7 +12,41 @@ function RegistarApprovedResultSheetsCollection() {
     const [batch, setBatch] = useState('First Year')
     const [semester, setSemester] = useState('Semester 1')
 
-    
+    const [students, setStudents] = useState([
+        {
+            index: '19APC3951',
+            GPA: '3.2'
+        },
+        {
+            index: '19APC3952',
+            GPA: '2.2'
+        },
+        {
+            index: '19APC3953',
+            GPA: '3.0'
+        },
+        {
+            index: '19APC3954',
+            GPA: '3.5'
+        },
+        {
+            index: '19APC3951',
+             GPA : '1.9'
+        },
+        {
+            index: '19APC3952',
+            GPA: '3.16'
+        },
+        {
+            index: '19APC3953',
+            GPA: '2.7'
+        },
+        {
+            index: '19APC3954',
+            GPA: '2.6'
+        }
+    ])
+
     const dispatch = useDispatch()
 
     const handleBack = () => {
@@ -36,7 +71,15 @@ function RegistarApprovedResultSheetsCollection() {
                     <p>Batch: {batch}</p>
                     <p>Semester: {semester}</p>
                 </div>
-                <ResultSheetsCollection userType="registar" resultSheets={sheets} />
+               {/* Added new content here */}
+               <div className='mt-5 w-full flex justify-center'>
+                    <ResultSheetsCollection userType="registar" resultSheets={sheets} />
+                </div>
+                <h3 className='mt-5 text-xl text-primary-txt'>Current GPA For Results</h3>
+                <div className='mb-5 w-full flex justify-center'>
+                    <GPATable students={students} setStudents={setStudents} user='student' />
+                </div>
+                {/* */} 
             </div>
         </div>
     )

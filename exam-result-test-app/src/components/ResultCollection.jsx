@@ -94,7 +94,9 @@ function ResultCollection({ userType, resultSheets }) {
             </div>
             <div className='mb-10 max-h-80 overflow-y-auto scrollbar-hide'>
                 {resultSheetList.map((sheet, index) => (
-                    <div key={index} className='py-2 w-full grid grid-cols-12 gap-1 gradient-border-bottom border-b-[1px]'>
+                    // Added new content here
+                    <div key={index} className='py-2 w-full grid grid-cols-12 gap-1 border-b-[1px]'>
+                    {/* // */}
                         {
                             userType !== 'dean' ?
                                 <div className='col-span-3 flex items-center justify-center'>

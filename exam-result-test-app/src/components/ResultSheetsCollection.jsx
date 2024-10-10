@@ -84,8 +84,9 @@ function ResultSheetsCollection({userType,resultSheets}) {
             </div>
             <div className='mb-10 max-h-48 overflow-y-auto scrollbar-hide'>
                 {resultSheetList.map((sheet, index) => (
-                    <div key={index} className='py-2 w-full grid grid-cols-12 gap-1 gradient-border-bottom border-b-[1px]'>
-                       
+                    //Added new content here
+                    <div key={index} className='py-2 w-full grid grid-cols-12 gap-1 border-b-[1px]'>
+                      {/* //  */}
                         <div className='col-span-4 flex items-center justify-center'>
                             <p className='py-2 text-[16px] text-black'>IS1101</p>
                         </div>

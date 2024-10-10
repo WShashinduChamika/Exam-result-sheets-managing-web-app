@@ -3,6 +3,7 @@ import ResultSheetsCollection from '../ResultSheetsCollection'
 import { IoChevronBack } from "react-icons/io5";
 import { useDispatch } from 'react-redux';
 import { examDepartmentClickApprovedCollectionView, examDepartmentClickCollectionView } from '../../store/reducers/ExamDptNavigationSlice';
+import GPATable from '../GPATable';
 
 function ExamDptApprovedResultSheetsCollection() {
     const sheets = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
@@ -18,35 +19,35 @@ function ExamDptApprovedResultSheetsCollection() {
     const [students, setStudents] = useState([
         {
             index: '19APC3951',
-            result: 'A'
+            GPA: '3.2'
         },
         {
             index: '19APC3952',
-            result: 'AB'
+            GPA: '2.2'
         },
         {
             index: '19APC3953',
-            result: 'C'
+            GPA: '3.0'
         },
         {
             index: '19APC3954',
-            result: 'Medical'
+            GPA: '3.5'
         },
         {
             index: '19APC3951',
-            result: 'A'
+             GPA : '1.9'
         },
         {
             index: '19APC3952',
-            result: 'AB'
+            GPA: '3.16'
         },
         {
             index: '19APC3953',
-            result: 'C'
+            GPA: '2.7'
         },
         {
             index: '19APC3954',
-            result: 'Medical'
+            GPA: '2.6'
         }
     ])
     
@@ -74,7 +75,15 @@ function ExamDptApprovedResultSheetsCollection() {
                     <p>Batch: {batch}</p>
                     <p>Semester: {semester}</p>
                 </div>
-                <ResultSheetsCollection userType="examDpt" resultSheets={sheets} />
+                {/* Added new content here */}
+                <div className='mt-5 w-full flex justify-center'>
+                    <ResultSheetsCollection userType="examDpt" resultSheets={sheets} />
+                </div>
+                <h3 className='mt-5 text-xl text-primary-txt'>Current GPA For Results</h3>
+                <div className='mb-5 w-full flex justify-center'>
+                    <GPATable students={students} setStudents={setStudents} user='student' />
+                </div>
+                {/* */}
             </div>
         </div>
     )
