@@ -4,7 +4,11 @@ const initialState = {
     isClickedAllResults:true,
     isClickedViewResult:false,
     isClickedHistory:false,
-    isClickedApprovedResultView:false
+    isClickedApprovedResultView:false,
+    //Added new content (This does not need since it for approval rejected results)
+    isClickedNotApprovedResults:false,
+    isClickedNotApprovedResultView:false
+    //
 }
 
 const dptSecretaryNavigationSlice = createSlice({
@@ -22,7 +26,15 @@ const dptSecretaryNavigationSlice = createSlice({
         },
         dptClickApprovedResultView: (state,action)=>{
             state.isClickedApprovedResultView = action.payload
+        },
+        //Added new content (This does not need since it for approval rejected results)
+        dptClickNotApprovedResult: (state,action)=>{
+            state.isClickedNotApprovedResults = action.payload
+        },
+        dptClickNotApprovedResultView: (state,action)=>{
+            state.isClickedNotApprovedResultView = action.payload
         }
+        //
     }
 })
 
@@ -30,7 +42,11 @@ export const {
     dptClickAllResult,
     dptClickViewResult,
     dptClickHistory,
-    dptClickApprovedResultView
+    dptClickApprovedResultView,
+    //Added new content (This does not need since it for approval rejected results)
+    dptClickNotApprovedResult,
+    dptClickNotApprovedResultView
+    //
 } = dptSecretaryNavigationSlice.actions
 
 export default dptSecretaryNavigationSlice.reducer

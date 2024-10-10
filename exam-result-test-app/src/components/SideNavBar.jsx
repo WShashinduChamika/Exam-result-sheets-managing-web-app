@@ -7,9 +7,10 @@ import { PiSquaresFourBold } from "react-icons/pi";
 import { IoSend } from "react-icons/io5";
 import { FaHourglassEnd } from "react-icons/fa6";
 import { TiUserAdd } from "react-icons/ti";
+import { MdOutlineCancelPresentation } from "react-icons/md";
 import { useDispatch, useSelector } from 'react-redux';
 import { clickAddResult, clickApprovalRequestResults, clickApprovalRequestView, clickDetailsProceed, clickedAprovalPendingResults, clickHistory, clickHistoryView, clickViewResult } from '../store/reducers/LectureNavigationSlice';
-import { dptClickAllResult, dptClickApprovedResultView, dptClickHistory, dptClickViewResult } from '../store/reducers/DptSecretaryNavigationSlice';
+import { dptClickAllResult, dptClickApprovedResultView, dptClickHistory, dptClickNotApprovedResult, dptClickNotApprovedResultView, dptClickViewResult } from '../store/reducers/DptSecretaryNavigationSlice';
 import { hodClickAllResult, hodClickApprovedResultView, hodClickHistory, hodClickViewResult } from '../store/reducers/HODNavigationSlice';
 import { deanClickAllReultSheets, deanClickApprovedCollection, deanClickApprovedCollectionView, deanClickApprovedResultSheetsCollectionView, deanClickApprovedResultView, deanClickCollection, deanClickCollectionView, deanClickHistory, deanClickResultSheetsCollectionView, deanClickViewResult } from '../store/reducers/DeanNavigationSlice';
 import { examDepartmentClickApprovedCollection, examDepartmentClickApprovedCollectionView, examDepartmentClickApprovedResultSheetsCollectionView, examDepartmentClickCollection, examDepartmentClickCollectionView, examDepartmentClickResultSheetsCollectionView } from '../store/reducers/ExamDptNavigationSlice';
@@ -46,7 +47,11 @@ function SideNavBar({ userType }) {
         {
             name: 'History',
             icon: <TbHistory size={20} color='white' />
-        }
+        },
+        // {
+        //     name: 'Approval Rejected Results',
+        //     icon: <MdOutlineCancelPresentation size={20} color='white' />
+        // }
     ]
 
     const hodNavLinks = [
@@ -244,6 +249,11 @@ function SideNavBar({ userType }) {
                 if (dptSecretaryNavigation.isClickedHistory) {
                     dispatch(dptClickHistory(false))
                 }
+                //Added new content (This does not need since it for approval rejected results)
+                if(dptSecretaryNavigation.isClickedNotApprovedResults){
+                    dispatch(dptClickNotApprovedResult(false))
+                }
+                //
             }
             if (name === 'History') {
                 if (!dptSecretaryNavigation.isClickedHistory) {
@@ -255,7 +265,28 @@ function SideNavBar({ userType }) {
                 if (dptSecretaryNavigation.isClickedAllResults) {
                     dispatch(dptClickAllResult(false))
                 }
+                //Added new content (This does not need since it for approval rejected results)
+                if(dptSecretaryNavigation.isClickedNotApprovedResults){
+                    dispatch(dptClickNotApprovedResult(false))
+                }
+                //
             }
+            //Added new content (This does not need since it for approval rejected results)
+            if(name === 'Approval Rejected Results'){
+                if(!dptSecretaryNavigation.isClickedNotApprovedResults){
+                    dispatch(dptClickNotApprovedResult(true))
+                }
+                if(dptSecretaryNavigation.isClickedNotApprovedResultView){
+                    dispatch(dptClickNotApprovedResultView(false))
+                }
+                if (dptSecretaryNavigation.isClickedAllResults) {
+                    dispatch(dptClickAllResult(false))
+                }
+                if (dptSecretaryNavigation.isClickedHistory) {
+                    dispatch(dptClickHistory(false))
+                }
+            }
+            //
         }
 
         if (userType === 'HOD') {
@@ -504,7 +535,7 @@ function SideNavBar({ userType }) {
 
     return (
         <div>
-            <div className='fixed w-1/5 min-w-[273px] flex flex-col h-screen max-h-screen bg-primary'>
+            <div className='fixed w-1/5 flex flex-col h-screen max-h-screen bg-primary'>
 
                 <div className='flex items-center justify-center h-32 w-full'>
                     <h1 className='text-white text-2xl font-bold'>Logo</h1>

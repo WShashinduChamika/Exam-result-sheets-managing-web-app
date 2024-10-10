@@ -1,10 +1,10 @@
+//Added new content (This does not need since it for approval rejected results)
 import React, { useState } from 'react'
 import ResultTable from '../ResultTable'
 import DropDown from '../DropDown'
-import { FaComment, FaCommentSlash } from 'react-icons/fa6'
+import { FaComment, FaCommentSlash } from 'react-icons/fa6';
 
-function DptResult() {
-
+function LectureNotApprovedResult() {
     const status = ['Medical', 'AB']
 
     const handleAddResult = () => {
@@ -46,17 +46,11 @@ function DptResult() {
         }
     ])
     
-    //Added new content here
-    const [approveStatus, setApproveStatus] = useState('dptSecretary')
-
     const [showComment, setShowComment] = useState(false)
-
     const [comment, setComment] = useState('There is issue with absent status of two students. The index numbers of them are respectively 19APC3855 and 19APC4022. So, Please correct those details with correct data.')
-
     const handleViewReason = () => {
         setShowComment(!showComment)
     }
-    //
 
     return (
 
@@ -90,32 +84,19 @@ function DptResult() {
                 <div className='mt-2'>
                     <ResultTable students={students} setStudents={setStudents} user='dptSecretary' />
                 </div>
-                {/* Added new content here */}
-                {
-                    approveStatus === 'lecture' ?
-                        <div className='mt-7 mx-10 flex gap-3 justify-between'>
-                            <div
-                                onClick={handleViewReason}
-                                className='flex gap-3 cursor-pointer'
-                            >
-                                {!showComment ? <FaComment className='text-2xl text-secondary' /> : <FaCommentSlash className='text-2xl text-secondary' />}
-                                {!showComment ? <p className='text-secondary text-lg'>View Reason</p> : <p className='text-secondary text-lg'>Hide Reason</p>}
-                            </div>
-                            <div className='flex gap-3'>
-                                <button className='mt-3 py-2 px-10 bg-transperant hover:bg-secondary hover:text-white text-black border-btn-border text-[16px] border-[1px]'>Update</button>
-                                <button className='mt-3 py-2 px-10 bg-secondary text-white border-btn-border text-[16px] border-[1px]'>Send</button>
-                            </div>
-                        </div>
-                        :
-                        approveStatus !== 'dptSecretary' ?
-                            <div className='mt-7 mx-10 flex gap-3 justify-end'>
-                                <div className='flex gap-3'>
-                                    <button className='mt-3 py-2 px-10 bg-transperant hover:bg-secondary hover:text-white text-black border-btn-border text-[16px] border-[1px]'>Update</button>
-                                    <button className='mt-3 py-2 px-10 bg-secondary text-white border-btn-border text-[16px] border-[1px]'>Send</button>
-                                </div>
-                            </div>
-                            : <></>
-                }
+                <div className='mt-7 mx-10 flex gap-3 justify-between'>
+                    <div
+                        onClick={handleViewReason}
+                        className='flex gap-3 cursor-pointer'
+                    >
+                       {!showComment ? <FaComment className='text-2xl text-secondary' /> : <FaCommentSlash className='text-2xl text-secondary' />}
+                       {!showComment ? <p className='text-secondary text-lg'>View Reason</p> : <p className='text-secondary text-lg'>Hide Reason</p>}
+                    </div>
+                    <div className='flex gap-3'>
+                        <button className='mt-3 py-2 px-10 bg-transperant hover:bg-secondary hover:text-white text-black border-btn-border text-[16px] border-[1px]'>Update</button>
+                        <button className='mt-3 py-2 px-10 bg-secondary text-white border-btn-border text-[16px] border-[1px]'>Send</button>
+                    </div>
+                </div>
             </div>
             {
                 showComment && <div className='fixed top-72 left-72 flex items-center'>
@@ -125,9 +106,9 @@ function DptResult() {
                     </div>
                 </div>
             }
-            {/* // */}
         </div>
     )
 }
 
-export default DptResult
+export default LectureNotApprovedResult
+//

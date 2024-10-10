@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { clickApprovalRequestView, clickHistoryView, clickViewResult } from '../store/reducers/LectureNavigationSlice'
-import { MdEdit } from "react-icons/md";
-import { dptClickApprovedResultView, dptClickViewResult } from '../store/reducers/DptSecretaryNavigationSlice';
+import { dptClickApprovedResultView, dptClickNotApprovedResultView, dptClickViewResult } from '../store/reducers/DptSecretaryNavigationSlice';
 import { hodClickApprovedResultView, hodClickViewResult } from '../store/reducers/HODNavigationSlice';
 import { deanClickApprovedResultView, deanClickViewResult } from '../store/reducers/DeanNavigationSlice';
 
 
-function ResultSheetList({ userType, resultSheets }) {
+function ResultSheetList({ userType, resultSheets, view }) {
 
     const [resultSheetList, setResulSheeetList] = useState(resultSheets)
+    
+    //added new content here
+    const [approveStatus,setApproveStatus] = useState('')
+    //
 
     const lectureNavigation = useSelector((store) => store.lectureNavigationSlice)
     const dptSecretaryNavigation = useSelector((store) => store.dptSecretaryNavigationSlice)
@@ -36,6 +39,11 @@ function ResultSheetList({ userType, resultSheets }) {
             if(!dptSecretaryNavigation.isClickedApprovedResultView){
                 dispatch(dptClickApprovedResultView(true))
             }
+            //Added new content here
+            if(!dptSecretaryNavigation.isClickedNotApprovedResultView){
+                dispatch(dptClickNotApprovedResultView(true))
+            }
+            //
         } else if (userType === 'HOD') {
             if (!hodNavigation.isClickedViewResult) {
                 dispatch(hodClickViewResult(true))
@@ -105,16 +113,16 @@ function ResultSheetList({ userType, resultSheets }) {
                             <p className='text-lg text-black'>Computer Science</p>
                         </div>
                         <div className='h-10 col-span-1 flex items-center justify-center gap-3'>
-                            {/* <MdEdit size={20}
-                                //onClick={handleEditResult}
-                                className='text-edit-icon-bg cursor-pointer'
-                            /> */}
+                            {/* Added new content here */}
                             <button
                                 onClick={handleViewResult}
-                                className='py-1 px-4 flex itmes-center justify-center bg-view-btn-bg text-black text-[14px] rounded-3xl'
+                                className={`py-1 px-4 flex itmes-center justify-center 
+                                    ${approveStatus === 'lecture'? "bg-red-400": approveStatus === 'dptSecretary'?"bg-yellow-200":"bg-view-btn-bg"} 
+                                    text-black text-[14px] rounded-3xl`}
                             >
                                 View
                             </button>
+                            {/* // */}
                         </div>
                     </div>
                 ))}

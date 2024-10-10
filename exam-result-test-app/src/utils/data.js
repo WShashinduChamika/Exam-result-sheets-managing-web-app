@@ -322,11 +322,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Introduction to Food Science",
-                                                subjectCode: "FS1101"
+                                                subjectCode: "FS1101",
+                                                credits: 1
                                             },
                                             {
                                                 subjectName: "Chemistry for Food Science",
-                                                subjectCode: "FS1102"
+                                                subjectCode: "FS1102",
+                                                credits: 2
                                             }
                                         ]
                                     },
@@ -335,11 +337,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Food Microbiology",
-                                                subjectCode: "FS1201"
+                                                subjectCode: "FS1201",
+                                                credits: 1
                                             },
                                             {
                                                 subjectName: "Nutrition and Health",
-                                                subjectCode: "FS1202"
+                                                subjectCode: "FS1202",
+                                                credits: 2
                                             }
                                         ]
                                     }
@@ -353,11 +357,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Food Processing Techniques",
-                                                subjectCode: "FS2101"
+                                                subjectCode: "FS2101",
+                                                credits: 1
                                             },
                                             {
                                                 subjectName: "Biochemistry for Food Scientists",
-                                                subjectCode: "FS2102"
+                                                subjectCode: "FS2102",
+                                                credits: 2
                                             }
                                         ]
                                     },
@@ -366,11 +372,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Food Engineering",
-                                                subjectCode: "FS2201"
+                                                subjectCode: "FS2201",
+                                                credits: 1
                                             },
                                             {
                                                 subjectName: "Food Safety and Quality Assurance",
-                                                subjectCode: "FS2202"
+                                                subjectCode: "FS2202",
+                                                credits: 2
                                             }
                                         ]
                                     }
@@ -384,11 +392,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Dairy Science and Technology",
-                                                subjectCode: "FS3101"
+                                                subjectCode: "FS3101",
+                                                credits: 1
                                             },
                                             {
                                                 subjectName: "Food Packaging Technology",
-                                                subjectCode: "FS3102"
+                                                subjectCode: "FS3102",
+                                                credits: 2
                                             }
                                         ]
                                     },
@@ -397,11 +407,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Meat and Seafood Processing",
-                                                subjectCode: "FS3201"
+                                                subjectCode: "FS3201",
+                                                credits: 1
                                             },
                                             {
                                                 subjectName: "Food Biotechnology",
-                                                subjectCode: "FS3202"
+                                                subjectCode: "FS3202",
+                                                credits: 2
                                             }
                                         ]
                                     }
@@ -415,11 +427,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Advanced Food Safety",
-                                                subjectCode: "FS4101"
+                                                subjectCode: "FS4101",
+                                                credits: 1
                                             },
                                             {
                                                 subjectName: "Food Product Development",
-                                                subjectCode: "FS4102"
+                                                subjectCode: "FS4102",
+                                                credits: 2
                                             }
                                         ]
                                     },
@@ -428,11 +442,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Final Year Research Project",
-                                                subjectCode: "FS4201"
+                                                subjectCode: "FS4201",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Entrepreneurship in Food Science",
-                                                subjectCode: "FS4202"
+                                                subjectCode: "FS4202",
+                                                credits: 1
                                             }
                                         ]
                                     }
@@ -456,11 +472,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Mathematics I",
-                                                subjectCode: "PS1101"
+                                                subjectCode: "PS1101",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Classical Physics",
-                                                subjectCode: "PS1102"
+                                                subjectCode: "PS1102",
+                                                credits: 1
                                             }
                                         ]
                                     },
@@ -469,11 +487,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Mathematics II",
-                                                subjectCode: "PS1201"
+                                                subjectCode: "PS1201",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Electromagnetism",
-                                                subjectCode: "PS1202"
+                                                subjectCode: "PS1202",
+                                                credits: 1
                                             }
                                         ]
                                     }
@@ -487,11 +507,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Quantum Mechanics",
-                                                subjectCode: "PS2101"
+                                                subjectCode: "PS2101",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Thermodynamics",
-                                                subjectCode: "PS2102"
+                                                subjectCode: "PS2102",
+                                                credits: 1
                                             }
                                         ]
                                     },
@@ -500,11 +522,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Solid State Physics",
-                                                subjectCode: "PS2201"
+                                                subjectCode: "PS2201",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Optics",
-                                                subjectCode: "PS2202"
+                                                subjectCode: "PS2202",
+                                                credits: 1
                                             }
                                         ]
                                     }
@@ -518,11 +542,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Nuclear Physics",
-                                                subjectCode: "PS3101"
+                                                subjectCode: "PS3101",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Computational Physics",
-                                                subjectCode: "PS3102"
+                                                subjectCode: "PS3102",
+                                                credits: 1
                                             }
                                         ]
                                     },
@@ -531,11 +557,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Astrophysics",
-                                                subjectCode: "PS3201"
+                                                subjectCode: "PS3201",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Advanced Laboratory Techniques",
-                                                subjectCode: "PS3202"
+                                                subjectCode: "PS3202",
+                                                credits: 1
                                             }
                                         ]
                                     }
@@ -549,11 +577,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Advanced Quantum Mechanics",
-                                                subjectCode: "PS4101"
+                                                subjectCode: "PS4101",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Condensed Matter Physics",
-                                                subjectCode: "PS4102"
+                                                subjectCode: "PS4102",
+                                                credits: 1
                                             }
                                         ]
                                     },
@@ -562,11 +592,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Final Year Research Project",
-                                                subjectCode: "PS4201"
+                                                subjectCode: "PS4201",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Entrepreneurship in Physical Sciences",
-                                                subjectCode: "PS4202"
+                                                subjectCode: "PS4202",
+                                                credits: 1
                                             }
                                         ]
                                     }
@@ -590,11 +622,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Introduction to Natural Resources",
-                                                subjectCode: "NR1101"
+                                                subjectCode: "NR1101",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Environmental Chemistry",
-                                                subjectCode: "NR1102"
+                                                subjectCode: "NR1102",
+                                                credits: 1
                                             }
                                         ]
                                     },
@@ -603,11 +637,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Biodiversity Conservation",
-                                                subjectCode: "NR1201"
+                                                subjectCode: "NR1201",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Soil Science",
-                                                subjectCode: "NR1202"
+                                                subjectCode: "NR1202",
+                                                credits: 1
                                             }
                                         ]
                                     }
@@ -621,11 +657,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Water Resource Management",
-                                                subjectCode: "NR2101"
+                                                subjectCode: "NR2101",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Forest Ecology",
-                                                subjectCode: "NR2102"
+                                                subjectCode: "NR2102",
+                                                credits: 1
                                             }
                                         ]
                                     },
@@ -634,11 +672,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Wildlife Management",
-                                                subjectCode: "NR2201"
+                                                subjectCode: "NR2201",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Environmental Impact Assessment",
-                                                subjectCode: "NR2202"
+                                                subjectCode: "NR2202",
+                                                credits: 1
                                             }
                                         ]
                                     }
@@ -652,11 +692,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Climate Change and Sustainability",
-                                                subjectCode: "NR3101"
+                                                subjectCode: "NR3101",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Marine Ecosystems",
-                                                subjectCode: "NR3102"
+                                                subjectCode: "NR3102",
+                                                credits: 1
                                             }
                                         ]
                                     },
@@ -665,11 +707,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Natural Resource Economics",
-                                                subjectCode: "NR3201"
+                                                subjectCode: "NR3201",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "GIS and Remote Sensing",
-                                                subjectCode: "NR3202"
+                                                subjectCode: "NR3202",
+                                                credits: 1
                                             }
                                         ]
                                     }
@@ -683,11 +727,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Conservation Biology",
-                                                subjectCode: "NR4101"
+                                                subjectCode: "NR4101",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Renewable Energy Resources",
-                                                subjectCode: "NR4102"
+                                                subjectCode: "NR4102",
+                                                credits: 1
                                             }
                                         ]
                                     },
@@ -696,11 +742,13 @@ const data = [
                                         subjects: [
                                             {
                                                 subjectName: "Final Year Research Project",
-                                                subjectCode: "NR4201"
+                                                subjectCode: "NR4201",
+                                                credits: 2
                                             },
                                             {
                                                 subjectName: "Entrepreneurship in Natural Resources",
-                                                subjectCode: "NR4202"
+                                                subjectCode: "NR4202",
+                                                credits: 1
                                             }
                                         ]
                                     }
@@ -712,6 +760,7 @@ const data = [
             }
         ]
     }
+    
 ];
 
 export default data;
