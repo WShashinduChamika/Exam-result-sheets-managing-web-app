@@ -3,6 +3,7 @@ import ResultTable from '../ResultTable'
 import { useDispatch } from 'react-redux'
 import { IoChevronBack } from 'react-icons/io5'
 import { vcClickResultSheetsCollectionView } from '../../store/reducers/VCNavigationSlice'
+import ResultTable2 from '../ResultTable2'
 
 function VCResultCollectionResult() {
     const [students, setStudents] = useState([
@@ -61,7 +62,7 @@ function VCResultCollectionResult() {
                     </div>
                 </div>
                 <div className='mt-5 w-full'>
-                    <ResultTable students={students} setStudents={setStudents} user='vc' />
+                    <ResultTable2 students={students} setStudents={setStudents} user='vc' />
                 </div>
             </div>
         </div>

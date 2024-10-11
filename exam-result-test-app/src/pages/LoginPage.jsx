@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import loginUniLogo from '../assets/login/loginUniLogo.png'
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import ForgotPassword from '../components/ForgotPassword';
 
 function LoginPage() {
 
@@ -20,7 +21,7 @@ function LoginPage() {
     }
 
     const handleLogin = () => {
-         authenticateUser();
+        authenticateUser();
     }
 
     const authenticateUser = async () => {
@@ -47,7 +48,7 @@ function LoginPage() {
             // } else if (data.role === 'dean') {
             //     navigate('/dean')
             // }
-             console.log(username.current.value)
+            console.log(username.current.value)
             if (username.current.value === 'lecture') {
                 navigate('/lecture')
             } else if (username.current.value === 'dptSecretary') {
@@ -56,15 +57,15 @@ function LoginPage() {
                 navigate('/hod')
             } else if (username.current.value === 'dean') {
                 navigate('/dean')
-            }else if(username.current.value === 'examDepartment'){
+            } else if (username.current.value === 'examDepartment') {
                 navigate('/examDepartment')
-            }else if(username.current.value === 'registar'){
+            } else if (username.current.value === 'registar') {
                 navigate('/registar')
-            }else if(username.current.value === 'vc'){
+            } else if (username.current.value === 'vc') {
                 navigate('/vc')
-            }else if(username.current.value === 'student'){
+            } else if (username.current.value === 'student') {
                 navigate('/publishedResult')
-            }else if(username.current.value === 'admin'){
+            } else if (username.current.value === 'admin') {
                 navigate('/admin')
             }
 
@@ -73,7 +74,13 @@ function LoginPage() {
             console.log(err)
         }
     }
+    //Added new content here
+    const [clickForgotPassword, setClickForgotPassword] = useState(false)
 
+    const handleForgotPassword = () => {
+        setClickForgotPassword(true)
+    }
+    //
     return (
         <div>
             <div className='w-screen flex items-center justify-center h-screen bg-login-bg bg-cover bg-center'>
@@ -108,14 +115,28 @@ function LoginPage() {
                             </div>
                         </div>
                     </div>
+                    {/* Added new content */}
+                    <div
+                        onClick={handleForgotPassword}
+                        className='mt-4 w-3/4 flex justify-end text-primary-txt hover:text-secondary hover:font-semibold cursor-pointer transition-all'
+                    >
+                        <p>Forgot Password ?</p>
+                    </div>
+                    {/* // */}
                     <button
                         onClick={handleLogin}
-                        className='mt-7 mb-32 w-3/4 h-12 bg-primary text-white rounded-3xl'
+                        className='mt-7 mb-20 w-3/4 h-12 bg-primary text-white rounded-3xl'
                     >
                         Login
                     </button>
                 </div>
             </div>
+            {/* Added new content */}
+            {
+                clickForgotPassword ?
+                    <ForgotPassword setClickForgotPassword={setClickForgotPassword} /> : <></>
+            }
+            {/* // */}
         </div>
     )
 }

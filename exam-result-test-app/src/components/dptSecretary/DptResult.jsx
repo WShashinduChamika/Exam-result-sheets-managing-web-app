@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import ResultTable from '../ResultTable'
 import DropDown from '../DropDown'
 import { FaComment, FaCommentSlash } from 'react-icons/fa6'
+import ResultTable2 from '../ResultTable2'
 
 function DptResult() {
 
@@ -88,7 +89,7 @@ function DptResult() {
                     </div>
                 </div>
                 <div className='mt-2'>
-                    <ResultTable students={students} setStudents={setStudents} user='dptSecretary' />
+                    <ResultTable2 students={students} setStudents={setStudents} user='dptSecretary' />
                 </div>
                 {/* Added new content here */}
                 {

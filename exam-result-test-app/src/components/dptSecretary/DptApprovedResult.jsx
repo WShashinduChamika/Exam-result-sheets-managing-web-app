@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ResultTable from '../ResultTable'
+import ResultTable2 from '../ResultTable2'
 
 function DptApprovedResult() {
     const [students, setStudents] = useState([
@@ -47,7 +48,7 @@ function DptApprovedResult() {
                     </div>
                 </div>
                 <div className='mt-5 w-full'>
-                    <ResultTable students={students} setStudents={setStudents} user='hod' />
+                    <ResultTable2 students={students} setStudents={setStudents} user='hod' />
                 </div>
             </div>
         </div>
